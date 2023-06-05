@@ -4,13 +4,19 @@ import { FriendDiv, FriendItems } from './FriendList.styled';
 
 const FriendList = ({ friends }) => {
   return (
-      <FriendDiv>
-        <FriendItems>{friends.map(({ avatar, name, isOnline, id }) => (
-            <FriendListItem key={id} avatar={avatar} name={name} isOnline={isOnline} />
+    <FriendDiv>
+      <FriendItems>
+        {friends.map(({ avatar, name, isOnline, id }) => (
+          <FriendListItem
+            key={id}
+            avatar={avatar}
+            name={name}
+            isOnline={isOnline}
+          />
         ))}
       </FriendItems>
-      </FriendDiv>
-        )
+    </FriendDiv>
+  );
 };
 
 FriendList.propTypes = {
@@ -21,6 +27,6 @@ FriendList.propTypes = {
       isOnline: PropTypes.bool.isRequired,
       id: PropTypes.number.isRequired,
     })
-  ),
+  ).isRequired,
 };
 export default FriendList;
